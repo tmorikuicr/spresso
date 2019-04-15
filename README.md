@@ -175,7 +175,7 @@ $ ./run_compScore.sh result_som.exprs_go_comb5_del3 result_score_tables/score_ta
 - result_score_tables/score_table_go_comb5_del3.txt
 
 
-### STEP 9: Delete genes further 
+### STEP 9: Delete further genes 
 In above experiments, the combination of 5 GOs with deletion of genes Arl13b and Smad7 achieved 100% success rate.
 Here, in order to investigate which genes are the most influential spatial discriminators, 
 ***generate_comb_genes_exprs.r*** removed each of the 18 genes for 100% success rate to see the reductions of the success rate.
