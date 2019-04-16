@@ -287,4 +287,4 @@ $ Rscript plot_corMatrix_cell.r -e exprs_go_comb5_del2 -i output_go_comb5_del2/t
 ```
 **[Output]**
 - \<output directory\>/corr_cell.pdf
-![corr domain GO:0060412](img/corr_domain_go0060412.png)
+<img src="img/corr_domain_go0060412.png" width="100px">
