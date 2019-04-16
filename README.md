@@ -228,6 +228,7 @@ $ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go_comb5_de
 - \<output directory\>/tbl.all.txt
 
 
+<img src="img/distributions_go.png" width="250px"> <img src="img/distributions_go_comb2.png" width="250px"> 
 
 ### STEP 12: Plot 3D-models
 ***plot_3D-model.r*** generates png images of reconstructed 3d-model from the SOM results with the specified success rate by option `-c` in 
