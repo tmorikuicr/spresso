@@ -246,6 +246,9 @@ $ Rscript plot_3D-model.r -i result_som.exprs_go_comb5_del2 -e exprs_go_comb5_de
 - output_go/3d-model_exprs_go_comb5_del2
 
 
+<img src="img/GO0060412_3d_24_movie.gif" width="250px">
+
+
 ### STEP 13: Plot correlation matrix of domains
 ***plot_corMatrix_domain.r*** plots correlation matrix of domains as heat maps 
 for all GOs listed in ***\<directory name\>/tbl.all.txt***.
