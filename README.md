@@ -253,8 +253,6 @@ $ Rscript plot_3D-model.r -i result_som.exprs_go_comb5_del2 -e exprs_go_comb5_de
 |:--------:|:---------------:|:-----------------------------------------:|
 |GO:0060412|5 GOs combination<sup>1</sup>|5 GOs combination<sup>1</sup> without *Arl13b* and *Smad7*|
 
-<sup>1</sup> The 5 GOs combinaton consists of GO:0064120, GO:0005021, GO:2000392, GO:0031994, and GO:0070986.
-
 
 ### STEP 13: Plot correlation matrix of domains
 ***plot_corMatrix_domain.r*** plots correlation matrix of domains as heat maps 
@@ -270,4 +268,9 @@ $ Rscript plot_corMatrix_domain.r -e exprs_go_comb5_del2 -i output_go_comb5_del2
 - \<output directory\>/corr_domain.pdf
 
 
-<img src="img/corr_domain_go0060412.png" width="250px"> <img src="img/corr_domain_go_comb5.png" width="250px"> <img src="img/corr_domain_go_comb5_del2.png" width="250px">
+|<img src="img/corr_domain_go0060412.png" width="250px">|<img src="img/corr_domain_go_comb5.png" width="250px">|<img src="img/corr_domain_go_comb5_del2.png" width="250px">|
+|:-----:|:-----:|:-----:|
+|GO:0060412|5 GOs combination<sup>1</sup>|5 GOs combination<sup>1</sup> without *Arl13b* and *Smad7*|
+
+
+<sup>1</sup> The 5 GOs combinaton consists of GO:0064120, GO:0005021, GO:2000392, GO:0031994, and GO:0070986.
