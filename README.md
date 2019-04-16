@@ -248,9 +248,9 @@ $ Rscript plot_3D-model.r -i result_som.exprs_go_comb5_del2 -e exprs_go_comb5_de
 
 |<img src="img/GO0060412_3d_24_movie.gif" width="250px">|<img src="img/GO0060412-GO0005021-GO2000392-GO0031994-GO0070986_3d_23_movie.gif" width="250px">|<img src="img/comb_del-Arl13b-Smad7_3d_41_movie.gif" width="250px">|
 |:--------:|:---------------:|:-----------------------------------------:|
-|GO:0060412|5 GOs combination<sup>1</sup>]|5 GOs combinations<sup>1</sup> without Arl13b and Smad7|
+|GO:0060412|5 GOs combination<sup>1</sup>|5 GOs combinations<sup>1</sup> without Arl13b and Smad7|
 
-<sup>1</sup>:The 5 GOs combinaton consists of GO:0064120, GO:0005021, GO:2000392, GO:0031994, and GO:0070986.
+<sup>1</sup> The 5 GOs combinaton consists of GO:0064120, GO:0005021, GO:2000392, GO:0031994, and GO:0070986.
 
 
 ### STEP 13: Plot correlation matrix of domains
