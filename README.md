@@ -227,7 +227,6 @@ $ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go_comb5_de
 - \<output directory\>/distributions.pdf
 - \<output directory\>/tbl.all.txt
 
-<img src="img/distributions_go.png" width="259px"> <img src="img/distributions_go_comb2.png" width="259px"> 
 
 
 ### STEP 12: Plot 3D-models
