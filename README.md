@@ -247,21 +247,7 @@ $ Rscript plot_3D-model.r -i result_som.exprs_go_comb5_del2 -e exprs_go_comb5_de
 - output_go/3d-model_exprs_go_comb5_del2
 
 
-### STEP 13: Plot heatmaps
-***plot_heatmap.r*** generates heat maps for all gene expression tables listed 
-in ***\<directory name\>/tbl.all.txt***. 
-The cutoff of the success rate can be change by the `-c` option.
-```
-$ Rscript plot_heatmap.r --help
-$ Rscript plot_heatmap.r -e exprs_go -i output_go/tbl.all.txt -c 0.6 -o output_go/heatmap.pdf
-$ Rscript plot_heatmap.r -e exprs_go_comb5 -i output_go_comb5/tbl.all.txt -c 0.95 -o output_go_comb5/heatmap.pdf
-$ Rscript plot_heatmap.r -e exprs_go_comb5_del2 -i output_go_comb5_del2/tbl.all.txt -c 0.95 -o output_go_comb5_del2/heatmap.pdf
-```
-**[Output]**  
-- \<output directory\>/heatmap.pdf
-
-
-### STEP 14: Plot correlation matrix of domains
+### STEP 13: Plot correlation matrix of domains
 ***plot_corMatrix_domain.r*** plots correlation matrix of domains as heat maps 
 for all GOs listed in ***\<directory name\>/tbl.all.txt***.
 The cutoff of the success rate can be change by the `-c` option.
@@ -273,20 +259,6 @@ $ Rscript plot_corMatrix_domain.r -e exprs_go_comb5_del2 -i output_go_comb5_del2
 ```
 **[Output]**
 - \<output directory\>/corr_domain.pdf
-
-
-### STEP 15: Plot correlation matrix of cells
-***plot_corMatrix_cell.r*** plots correlation matrix of cells as heat maps 
-for all GOs listed in ***\<directory name\>/tbl.all.txt***.
-The cutoff of the success rate can be change by the `-c` option.
-```
-$ Rscript plot_corMatrix_cell.r --help
-$ Rscript plot_corMatrix_cell.r -e exprs_go -i output_go/tbl.all.txt -t data/sample2domain.txt -c 0.6 -o output_go/corr_cell.pdf
-$ Rscript plot_corMatrix_cell.r -e exprs_go_comb5 -i output_go_comb5/tbl.all.txt -t data/sample2domain.txt -c 0.95 -o output_go_comb5/corr_cell.pdf
-$ Rscript plot_corMatrix_cell.r -e exprs_go_comb5_del2 -i output_go_comb5_del2/tbl.all.txt -t data/sample2domain.txt -c 0.95 -o output_go_comb5_del2/corr_cell.pdf
-```
-**[Output]**
-- \<output directory\>/corr_cell.pdf
 
 
 <img src="img/corr_domain_go0060412.png" width="250px"> <img src="img/corr_domain_go_comb5.png" width="250px"> <img src="img/corr_domain_go_comb5_del2.png" width="250px">
