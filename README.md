@@ -245,8 +245,9 @@ $ Rscript plot_3D-model.r -i result_som.exprs_go_comb5_del2 -e exprs_go_comb5_de
 - output_go/3d-model_exprs_go_comb5
 - output_go/3d-model_exprs_go_comb5_del2
 
-
-<img src="img/GO0060412_3d_24_movie.png" width="250px">
+|GO:0060412|5 GOs combination|5 GOs combinations without Arl13b and Smad7|
+|:--------:|:---------------:|:-----------------------------------------:|
+|<img src="img/GO0060412_3d_24_movie.png" width="250px">|||
 
 
 ### STEP 13: Plot correlation matrix of domains
