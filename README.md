@@ -246,7 +246,7 @@ $ Rscript plot_3D-model.r -i result_som.exprs_go_comb5_del2 -e exprs_go_comb5_de
 - output_go/3d-model_exprs_go_comb5_del2
 
 
-|<img src="img/GO0060412_3d_24_movie.gif" width="250px">|<img src="img/GO0060412_3d_24_movie.gif" width="250px">|<img src="img/GO0060412_3d_24_movie.gif" width="250px">|
+|<img src="img/GO0060412_3d_24_movie.gif" width="250px">|<img src="img/GO0060412-GO0005021-GO2000392-GO0031994-GO0070986_3d_23_movie.gif" width="250px">|<img src="img/comb_del-Arl13b-Smad7_3d_41_movie.gif" width="250px">|
 |:--------:|:---------------:|:-----------------------------------------:|
 |GO:0060412|5 GOs combination|5 GOs combinations without Arl13b and Smad7|
 
