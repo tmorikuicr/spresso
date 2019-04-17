@@ -102,9 +102,11 @@ $ ./run_compScore.sh result_som.exprs_peng result_score_tables/score_table_peng.
 
 
 ### STEP 6: Generate gene expression tables consisting of two GOs and run stocahstic-SOM clustering
-***generate_comb_pair_exprs.r*** generates gene expression tables based on combinations of two GOs including GO:0060412.
+To increase success rate, this step enables us to test the reconstruction by combinations of all pairs of GOs.
+In the following example,
+***generate_comb_pair_exprs.r*** generates gene expression tables based on combinations of pairs of GO:0060412 and each of the other 6,777 GOs.
+`-t` and `-i` specify the input score tables generated in **STEP 5** and input directory including all gene expression profiles, respectively. `-g` and `-k` specify a base GO for the combinations of all pairs and the number of GOs to be combined with the base GO, respectively. The GO combinations can be changed by specifying another GO as a base in `-g` option instead of GO0060412. The resulting expression profiles are generated in an output directory specified by `-o` option.
 After running ***run_som.sh*** and ***run_compScore.sh***, the user will get ***score_table_go_comb2.txt***.
-The GO combinations can be changed by specifying other GO as a base in `-g` option.
 ```
 ### 2 GOs combinations including GO:0060412 ###
 $ Rscript generate_comb_pair_exprs.r --help
