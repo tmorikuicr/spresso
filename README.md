@@ -67,8 +67,8 @@ $ ./count_genes.sh
 - output/go2size.peng.txt
 
 
-### STEP 4: Run self-organizing map (SOM) clustering (*submit jobs via `qsub`*)
-***run_som.sh*** executes SOM clustering for all gene expression data in 
+### STEP 4: Run stochastic self-organizing map (stochastic-SOM) clustering (*submit jobs via `qsub`*)
+***run_som.sh*** executes stochastic-SOM clustering for all gene expression profiles in 
 ***exprs_go*** and ***exprs_peng***. 
 It will take several hours to finish SOM clustering for all expression data.
 Please modify ***run_som.sh*** according to the environment of user's cluster machine if necessary.
@@ -76,25 +76,32 @@ Please modify ***run_som.sh*** according to the environment of user's cluster ma
 $ ./run_som.sh exprs_go tiny
 $ ./run_som.sh exprs_peng tiny
 ```
+If you want to execute stochastic-SOM clustering for each GO individually,
+the followings are also available.
+```
+$ python som.py <PATH/TO/EXPRESSION_PROFILE> <PATH/TO/OUTPUT_DIRECTORY>
+```
+
 **[Output]**
 - result_som.exprs_go
 - result_som.exprs_peng
 
 
 ### STEP 5: Evaluation (*submit jobs via `qsub`*)
-***run_compScore.sh*** computes ***success rate*** and ***variance*** for all SOM results in the input directories.
+***run_compScore.sh*** computes ***success rate*** and ***total variance*** for all SOM results in the input directories.
 Please modify ***run_compScore.sh*** according to the environment of user's cluster machine if necessary.
 ```
 $ mkdir result_score_tables
 $ ./run_compScore.sh result_som.exprs_go result_score_tables/score_table_go.txt
 $ ./run_compScore.sh result_som.exprs_peng result_score_tables/score_table_peng.txt
 ```
+
 **[Output]**
 - result_score_tables/score_table_go.txt
 - result_score_tables/score_table_peng.txt
 
 
-### STEP 6: Generate gene expression tables consisting of two GOs and run SOM clustering
+### STEP 6: Generate gene expression tables consisting of two GOs and run stocahstic-SOM clustering
 ***generate_comb_pair_exprs.r*** generates gene expression tables based on combinations of two GOs including GO:0060412.
 After running ***run_som.sh*** and ***run_compScore.sh***, the user will get ***score_table_go_comb2.txt***.
 The GO combinations can be changed by specifying other GO as a base in `-g` option.
