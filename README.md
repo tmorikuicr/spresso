@@ -161,9 +161,13 @@ $ ./run_compScore.sh result_som.exprs_go_comb6 result_score_tables/score_table_g
 
 
 ### STEP 8: Generate gene expression tables with deletion of one or more genes
-***generate_comb_genes_exprs.r*** generates gene expression tables in which combinatorial genes were deleted. The number of genes to be deleted can be specified by `-k` option.
+In this step, to test whether the success rate can be further increased,
+genes are removed one by one combinations from input gene expression profile.
+As an example, the combination of five GOs (GO:0060412, GO:0005021, GO:2000392, GO:0031994, and GO:0070986) is given as an input in the following executions.
+***generate_comb_genes_exprs.r*** generates gene expression profiles in which single or combinatorial genes were deleted.
+The number of genes to be deleted can be specified by `-k` option, where `-e` and `-o` options specify input gene expression profile and an output directory, respectively.
 ```
-### Delete a gene ###
+### Delete one gene ###
 $ Rscript generate_comb_genes_exprs.r --help
 $ Rscript generate_comb_genes_exprs.r -e exprs_go_comb5/exprs.log10.E1.GO0060412-GO0005021-GO2000392-GO0031994-GO0070986.txt -k 1 -o exprs_go_comb5_del1
 $ ./run_som.sh exprs_go_comb5_del1 tiny
