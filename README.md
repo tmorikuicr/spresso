@@ -28,10 +28,11 @@ The read counts of 23,631 genes by RNA-seq for the 41 samples are normalized bt 
 
 ## Usage
 
-### STEP 1: Get Gene Ontology Information
+### STEP 1: Get Gene Ontology (GO) information
 ***get_GO.r*** creates ***output*** directory, 
 and generates ***go2term.txt***, ***go2offsprings.txt***, 
-and ***go2gene.txt*** in the directory using ***biomaRt*** package.
+and ***go2gene.txt*** in the directory using ***biomaRt*** package, 
+which include terms, offsprings, and gene sets information for each GO, repectively.
 ```
 $ Rscript get_GO.r
 ```
@@ -42,7 +43,9 @@ $ Rscript get_GO.r
 
 
 ### STEP 2: Generate gene expression tables
-***generate_exprs.r*** generates gene expression tables according to PCA genes selected by Peng et al. and GOs.
+***generate_exprs.r*** generates gene expression tables according to 158 PCA genes selected by Peng et al. and 
+mouse-specific 6,778 GO gene sets (October 17, 1028) out of all 17,940 GOs with proper gene size
+(1,000 genes or less, and at least three mouse genes after low-expression filtering) to exclude too large or too small GOs.
 ```
 $ Rscript generate_exprs.r
 ```
@@ -54,7 +57,8 @@ $ Rscript generate_exprs.r
 
 ### STEP 3: Count the number of genes
 ***count_genes.sh*** counts the number of genes for each expression table in 
-***exprs_go*** and ***exprs_peng*** directories.
+***exprs_go*** and ***exprs_peng*** directories, 
+and outputs gene count tables ***go2size.go.txt*** and ***go2size.peng.txt***.
 ```
 $ ./count_genes.sh
 ``` 
