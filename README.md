@@ -193,11 +193,9 @@ $ ./run_compScore.sh result_som.exprs_go_comb5_del3 result_score_tables/score_ta
 
 
 ### STEP 9: Delete further genes 
-In above experiments, the combination of 5 GOs with deletion of genes Arl13b and Smad7 achieved 100% success rate.
-Here, in order to investigate which genes are the most influential spatial discriminators, 
-***generate_comb_genes_exprs.r*** removed each of the 18 genes for 100% success rate to see the reductions of the success rate.
-When Id2 (inhibitor of DNA binding 2) was remove, the success rate was dramatically reduced to 37%,
-and if Id2 was removed with the other 17 genes as pairs, the success rate was further decreased in 12 out of 17 genes.
+To investigate which genes are the most influential spatical discriminators, 
+***generate_comb_genes_exprs.r*** removes each of the genes in an input expression profile to see the reduction of the success rate.
+In the following example, *Id2* is removed singularly or by pairs with the other genes in the above 5 GOs combination (GO:0060412, GO:0005021, GO:2000392, GO:0031994, and GO:0070986) with deletion of *Arl13b* and *Smad7*.
 ```
 $ mkdir -p exprs_go_comb5_best22_del-Arl13b-Id2-Smad7
 $ cp -p exprs_go_comb5_del3/exprs.log10.E1.comb_del-Arl13b-Id2-Smad7.txt exprs_go_comb5_best22_del-Arl13b-Id2-Smad7/
@@ -205,12 +203,16 @@ $ Rscript 08_generate_comb_genes_exprs.r -e exprs_go_comb5_best22_del-Arl13b-Id2
 $ ./04_run_som.sh exprs_go_comb5_best22_del-Arl13b-Id2-Smad7_del1 tiny
 $ ./05_run_compScore.sh result_som.exprs_go_comb5_best22_del-Arl13b-Id2-Smad7_del1 result_score_tables/exprs_go_comb5_best22_del-Arl13b-Id2-Smad7_del1.txt
 ```
+**[Output]**
+- exprs_go_comb5_best22_del-Arl13b-Id2-Smad7
+- exprs_go_comb5_best22_del-Arl13b-Id2-Smad7_del1
+- score_table_go_comb5_best22_del-Arl13b-Id2-Smad7_del1.txt
 
 
-### STEP 10: Count genes of the expression tables consisting of multiple GOs
+### STEP 10: Count genes of the expression profiles of combinations of GOs
 ***count_genes_comb.sh*** counts the number of genes for each expression tables in 
 ***exprs_go_comb2***, ***exprs_go_comb3***, ***exprs_go_comb4***, ***exprs_go_comb5***, ***exprs_go_comb6***, 
-***exprs_go_comb5_del1***, ***exprs_go_comb5_del2***, and ***exprs_go_comb5_del3***.
+***exprs_go_comb5_del1***, ***exprs_go_comb5_del2***, and ***exprs_go_comb5_del3*** by the same way as **STEP 3**.
 ```
 $ ./count_genes_comb.sh
 ``` 
@@ -226,18 +228,12 @@ $ ./count_genes_comb.sh
 
 
 ### STEP 11: Plot SOM results
-***plot_som_results.r*** plots figures of "success rate vs variance", "the number of features vs success rate". 
+***plot_som_results.r*** plots figures of "success rate vs total variance". 
+See [Mori et al. (to be submitted)」 for the detals of calculations of success rate and total variance.
 ```
 $ Rscript plot_som_results.r --help 
 $ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go.txt -q result_score_tables/score_table_go.txt -o output_go
 $ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go_comb2.txt -q result_score_tables/score_table_go_comb2.txt -o output_go_comb2
-$ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go_comb3.txt -q result_score_tables/score_table_go_comb3.txt -o output_go_comb3
-$ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go_comb4.txt -q result_score_tables/score_table_go_comb4.txt -o output_go_comb4
-$ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go_comb5.txt -q result_score_tables/score_table_go_comb5.txt -o output_go_comb5
-$ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go_comb6.txt -q result_score_tables/score_table_go_comb6.txt -o output_go_comb6
-$ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go_comb5_del1.txt -q result_score_tables/score_table_go_comb5_del1.txt -o output_go_comb5_del1
-$ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go_comb5_del2.txt -q result_score_tables/score_table_go_comb5_del2.txt -o output_go_comb5_del2
-$ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go_comb5_del3.txt -q result_score_tables/score_table_go_comb5_del3.txt -o output_go_comb5_del3
 ```
 **[Output]**
 - \<output directory\>/distributions.pdf
