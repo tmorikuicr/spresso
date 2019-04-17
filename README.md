@@ -24,7 +24,7 @@ To reconstruct spatial structure of mid-gastrual mouse embryo (E7.0d),
 gene expression profiles for cryo-sectioned embryo laser microdissection study by [Peng et al.](https://www.ncbi.nlm.nih.gov/pubmed/27003939), ***GSE65924_E1.gene.expression.txt.gz*** downloaded from ([GSE65924](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE65924)), is given as input.
 The gene expression profiles for each of eleven frozen sections were separated into four regions (anterior, posterior, left, and right), where a total of 41 samples are available (the most distal section has no right and left samples, and there is one low expression sample). Each sample is composed of a small number of cells (about 20 cells per sample) and not single-cell data.
 The read counts of 23,631 genes by RNA-seq for the 41 samples are normalized bt FPKM.
-[Peng et al.](https://www.ncbi.nlm.nih.gov/pubmed/27003939) have already reported that the 41 samples can be grouped into four spatial domains  (D1: anterior, D2: lateral-distal, D3: lateral-proximal, and D4: posterior).
+[Peng et al.](https://www.ncbi.nlm.nih.gov/pubmed/27003939) have already reported that the 41 samples can be grouped into four spatial domains  (D1: anterior, D2: lateral-distal, D3: lateral-proximal, and D4: posterior) by hierarchical clustering based on differentially expressed genes (DEGs) and PCA.
 
 ## Usage
 
