@@ -121,9 +121,8 @@ $ ./run_compScore.sh result_som.exprs_go_comb2 result_score_tables/score_table_g
 
 
 ### STEP 7: Generate gene expression tables consisting of more than two GOs and run SOM clustering
-***generate_comb_multi_exprs.r*** generates gene expression tables based on combinations of three or more GOs including GO:0060412 with high success_rate.
+This step further tests all combinations of from three to six GOs including one base GO (e.g., GO:0060412). ***generate_comb_multi_exprs.r*** generates gene expression profiles based on combinations of three or more GOs with higher success rate, where the options `-t`, `-g`, `-k`, `-i`, and `-o` are the same as ***generate_comb_pair_exprs.r*** in **STEP 6**, and `-c` specifies the threshold of the success rate for candidates of GO combinations.
 After running ***run_som.sh*** and ***run_compScore.sh***, the user will get ***score_table_go_comb3.txt***, ***score_table_go_comb4.txt***, ***score_table_go_comb5.txt***, and ***score_table_go_comb6.txt***.
-In the same way as STEP 6, a base GO can be changed in `-g` option.
 ```
 ### 3 GOs combinations including GO:0060412 ###
 $ Rscript generate_comb_multi_exprs.r --help
