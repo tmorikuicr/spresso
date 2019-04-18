@@ -251,7 +251,7 @@ See Supplementary Information of Mori et al. (to be submitted) for more details 
 ***plot_3D-model.r*** generates png images and gif movies of reconstructed 3d-model from the stchastic-SOM clustering results with the higher success rate than a cutoff specified by option `-c` in 
 ***result_som.exprs_go***, ***result_som.exprs_go_comb5***, and ***result_som.exprs_go_comb5_del2***. 
 If you want to generate movies, set `True` to the `-m` option.
-The options `-i`, `-e`, and `-o` specify directories storing stocahstic-SOM clustering results, gene expression profiles, and an output directory, respectively, and `-s` specifies a score table 
+The options `-i`, `-e`, and `-o` specify directories storing stocahstic-SOM clustering results, gene expression profiles, and an output directory, respectively, and `-s` specifies a score table.
 ```
 $ Rscript plot_3D-model.r --help
 $ Rscript plot_3D-model.r -i result_som.exprs_go -e exprs_go -s result_score_tables/score_table_go.txt -c 0.6 -m False -o output_go/3d-model_exprs_go
@@ -262,7 +262,6 @@ $ Rscript plot_3D-model.r -i result_som.exprs_go_comb5_del2 -e exprs_go_comb5_de
 - output_go/3d-model_exprs_go
 - output_go/3d-model_exprs_go_comb5
 - output_go/3d-model_exprs_go_comb5_del2
-
 
 |<img src="img/GO0060412_3d_24_movie.gif" width="250px">|<img src="img/GO0060412-GO0005021-GO2000392-GO0031994-GO0070986_3d_23_movie.gif" width="250px">|<img src="img/comb_del-Arl13b-Smad7_3d_41_movie.gif" width="250px">|
 |:--------:|:---------------:|:-----------------------------------------:|
