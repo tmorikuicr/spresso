@@ -250,7 +250,7 @@ This procedure visualizes mid-gastrula mouse embryo structure by projecting cell
 See Supplementary Information of Mori et al. (to be submitted) for more details of the visualization method.
 ***plot_3D-model.r*** generates png images and gif movies of reconstructed 3d-model from the stchastic-SOM clustering results with the higher success rate than a cutoff specified by option `-c` in 
 ***result_som.exprs_go***, ***result_som.exprs_go_comb5***, and ***result_som.exprs_go_comb5_del2***. 
-If you want to generate movies, set `True` to the `-m` option.
+If you want to generate movies, set `TRUE` to the `-m` option.
 The options `-i`, `-e`, and `-o` specify directories storing stocahstic-SOM clustering results, gene expression profiles, and an output directory, respectively, and `-s` specifies a score table.
 ```
 $ Rscript plot_3D-model.r --help
@@ -269,9 +269,9 @@ $ Rscript plot_3D-model.r -i result_som.exprs_go_comb5_del2 -e exprs_go_comb5_de
 
 
 ### STEP 13: Plot correlation matrix of domains
-***plot_corMatrix_domain.r*** plots correlation matrix of domains as heat maps 
-for all GOs listed in ***\<directory name\>/tbl.all.txt***.
+***plot_corMatrix_domain.r*** computes domain correlations based on the mean values of gene expressions in for four domains and plots its correlation matrix as heat maps for all GOs listed in ***\<directory name\>/tbl.all.txt***.
 The cutoff of the success rate can be change by the `-c` option.
+The options `-e`, `-i`, and `-o` specify directories storing gene expression profiles, evaluation results, and an output directory, respectively, `-t` specifies an input file including sample and domain information.
 ```
 $ Rscript plot_corMatrix_domain.r --help
 $ Rscript plot_corMatrix_domain.r -e exprs_go -i output_go/tbl.all.txt -t data/sample2domain.txt -c 0.6 -o output_go/corr_domain.pdf
@@ -280,7 +280,6 @@ $ Rscript plot_corMatrix_domain.r -e exprs_go_comb5_del2 -i output_go_comb5_del2
 ```
 **[Output]**
 - \<output directory\>/corr_domain.pdf
-
 
 |<img src="img/corr_domain_go0060412.png" width="250px">|<img src="img/corr_domain_go_comb5.png" width="250px">|<img src="img/corr_domain_go_comb5_del2.png" width="250px">|
 |:-----:|:-----:|:-----:|
