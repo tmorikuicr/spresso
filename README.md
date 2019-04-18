@@ -229,7 +229,7 @@ $ ./count_genes_comb.sh
 
 ### STEP 11: Plot SOM results
 ***plot_som_results.r*** plots figures of "success rate vs total variance". 
-See [Mori et al. (to be submitted)」 for the detals of calculations of success rate and total variance.
+See Mori et al. (to be submitted) for the detals of calculations of success rate and total variance.
 ```
 $ Rscript plot_som_results.r --help 
 $ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go.txt -q result_score_tables/score_table_go.txt -o output_go
@@ -246,15 +246,17 @@ $ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go_comb2.tx
 
 
 ### STEP 12: Plot 3D-models
-***plot_3D-model.r*** generates png images of reconstructed 3d-model from the SOM results with the specified success rate by option `-c` in 
+This procedure visualizes mid-gastrula mouse embryo structure by projecting cell samples on a paraboloid based on position information estimated by stochastic-SOM clustering.
+See Supplementary Information of Mori et al. (to be submitted) for more details of the visualization method.
+***plot_3D-model.r*** generates png images and gif movies of reconstructed 3d-model from the stchastic-SOM clustering results with the higher success rate than a cutoff specified by option `-c` in 
 ***result_som.exprs_go***, ***result_som.exprs_go_comb5***, and ***result_som.exprs_go_comb5_del2***. 
-The cutoff of the success rate can be change by the `-c` option. If you want to generate movies, set `True` to the `-m` option. 
-The type of 3D-model can be specified by `-t` option (`-t 1`: random model, `-t 2`: similarity-based model). 
+If you want to generate movies, set `True` to the `-m` option.
+The options `-i`, `-e`, and `-o` specify directories storing stocahstic-SOM clustering results, gene expression profiles, and an output directory, respectively, and `-s` specifies a score table 
 ```
 $ Rscript plot_3D-model.r --help
-$ Rscript plot_3D-model.r -i result_som.exprs_go -e exprs_go -s result_score_tables/score_table_go.txt -c 0.6 -m False -t 2 -o output_go/3d-model_exprs_go
-$ Rscript plot_3D-model.r -i result_som.exprs_go_comb5 -e exprs_go_comb5 -s result_score_tables/score_table_go_comb5.txt -c 0.95 -m False -t 2 -o output_go_comb5/3d-model_exprs_go_comb5
-$ Rscript plot_3D-model.r -i result_som.exprs_go_comb5_del2 -e exprs_go_comb5_del2 -s result_score_tables/score_table_go_comb5_del2.txt -c 0.95 -m False -t 2 -o output_go_comb5_del2/3d-model_exprs_go_comb5_del2
+$ Rscript plot_3D-model.r -i result_som.exprs_go -e exprs_go -s result_score_tables/score_table_go.txt -c 0.6 -m False -o output_go/3d-model_exprs_go
+$ Rscript plot_3D-model.r -i result_som.exprs_go_comb5 -e exprs_go_comb5 -s result_score_tables/score_table_go_comb5.txt -c 0.95 -m False -o output_go_comb5/3d-model_exprs_go_comb5
+$ Rscript plot_3D-model.r -i result_som.exprs_go_comb5_del2 -e exprs_go_comb5_del2 -s result_score_tables/score_table_go_comb5_del2.txt -c 0.95 -m False -o output_go_comb5_del2/3d-model_exprs_go_comb5_del2
 ```
 **[Output]**
 - output_go/3d-model_exprs_go
