@@ -244,6 +244,8 @@ $ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go_comb2.tx
 |:------------------------------------------------:|:------------------------------------------------------:|
 |6,778 GOs|Pairs of GO:0060412 and each of the other 6,777 GOs|
 
+The horizontal and vertical axes show the success rate and the total variance, respectively. Each dot indicates a feature gene set selected by GOs. The left figure shows the results of mouse-specific 6,778 GOs out of all 17,940 GOs with proper gene size (1,000 genes or less, and at least three mouse genes after low-expression filtering). The right figure shows the result of all pairs of GO:0060412 and the other 6,777 GOs.
+
 
 ### STEP 12: Plot 3D-models
 This procedure visualizes mid-gastrula mouse embryo structure by projecting cell samples on a paraboloid based on position information estimated by stochastic-SOM clustering.
