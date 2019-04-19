@@ -269,6 +269,8 @@ $ Rscript plot_3D-model.r -i result_som.exprs_go_comb5_del2 -e exprs_go_comb5_de
 |:--------:|:---------------:|:-----------------------------------------:|
 |GO:0060412|5 GOs combination<sup>1</sup>|5 GOs combination<sup>1</sup> without *Arl13b* and *Smad7*|
 
+In above 3D-models, red, green, purple, and yellow plots indicate cell samples from domains D1, D2, D3, and D4, respectively.
+
 
 ### STEP 13: Plot correlation matrix of domains
 ***plot_corMatrix_domain.r*** computes domain correlations based on the mean values of gene expressions in for four domains and plots its correlation matrix as heat maps for all GOs listed in ***\<directory name\>/tbl.all.txt***.
