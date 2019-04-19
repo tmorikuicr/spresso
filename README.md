@@ -28,7 +28,7 @@ The read counts of 23,631 genes by RNA-seq for the 41 samples are normalized bt 
 
 ## Usage
 
-### STEP 1: Get Gene Ontology (GO) information
+### ■ STEP 1: Get Gene Ontology (GO) information
 ***get_GO.r*** creates ***output*** directory, 
 and generates ***go2term.txt***, ***go2offsprings.txt***, 
 and ***go2gene.txt*** in the directory using ***biomaRt*** package, 
@@ -42,7 +42,7 @@ $ Rscript get_GO.r
 - output/go2gene.txt
 
 
-### STEP 2: Generate gene expression tables
+### ■ STEP 2: Generate gene expression tables
 ***generate_exprs.r*** generates gene expression tables according to 158 PCA genes selected by Peng et al. and 
 mouse-specific 6,778 GO gene sets (October 17, 1028) out of all 17,940 GOs with proper gene size
 (1,000 genes or less, and at least three mouse genes after low-expression filtering) to exclude too large or too small GOs.
@@ -54,8 +54,8 @@ $ Rscript generate_exprs.r
 - exprs_peng/exprs.log10.E1.peng158.txt
 - exprs_go/exprs.log10.E1.GOXXXXXX.txt
 
-
-### STEP 3: Count the number of genes
+---
+### ■ STEP 3: Count the number of genes
 ***count_genes.sh*** counts the number of genes for each expression table in 
 ***exprs_go*** and ***exprs_peng*** directories, 
 and outputs gene count tables ***go2size.go.txt*** and ***go2size.peng.txt***.
@@ -66,8 +66,8 @@ $ ./count_genes.sh
 - output/go2size.go.txt
 - output/go2size.peng.txt
 
-
-### STEP 4: Run stochastic self-organizing map (stochastic-SOM) clustering (*submit jobs via `qsub`*)
+---
+### ■ STEP 4: Run stochastic self-organizing map (stochastic-SOM) clustering (*submit jobs via `qsub`*)
 ***run_som.sh*** executes stochastic-SOM clustering for all gene expression profiles in 
 ***exprs_go*** and ***exprs_peng***. 
 It will take several hours to finish SOM clustering for all expression data.
@@ -87,7 +87,7 @@ $ python som.py <PATH/TO/EXPRESSION_PROFILE> <PATH/TO/OUTPUT_DIRECTORY>
 - result_som.exprs_peng
 
 
-### STEP 5: Evaluation (*submit jobs via `qsub`*)
+### ■ STEP 5: Evaluation (*submit jobs via `qsub`*)
 ***run_compScore.sh*** computes ***success rate*** and ***total variance*** for all SOM results in the input directories.
 Please modify ***run_compScore.sh*** according to the environment of user's cluster machine if necessary.
 ```
@@ -101,7 +101,7 @@ $ ./run_compScore.sh result_som.exprs_peng result_score_tables/score_table_peng.
 - result_score_tables/score_table_peng.txt
 
 
-### STEP 6: Generate gene expression tables consisting of two GOs and run stocahstic-SOM clustering
+### ■ STEP 6: Generate gene expression tables consisting of two GOs and run stocahstic-SOM clustering
 To increase success rate, this step enables us to test the reconstruction by combinations of all pairs of GOs.
 In the following example,
 ***generate_comb_pair_exprs.r*** generates gene expression tables based on combinations of pairs of GO:0060412 and each of the other 6,777 GOs.
@@ -120,7 +120,7 @@ $ ./run_compScore.sh result_som.exprs_go_comb2 result_score_tables/score_table_g
 - result_score_tables/score_table_go_comb2.txt
 
 
-### STEP 7: Generate gene expression tables consisting of more than two GOs and run SOM clustering
+### ■ STEP 7: Generate gene expression tables consisting of more than two GOs and run SOM clustering
 This step further tests all combinations of from three to six GOs including one base GO (e.g., GO:0060412). ***generate_comb_multi_exprs.r*** generates gene expression profiles based on combinations of three or more GOs with higher success rate, where the options `-t`, `-g`, `-k`, `-i`, and `-o` are the same as ***generate_comb_pair_exprs.r*** in **STEP 6**, and `-c` specifies the threshold of the success rate for candidates of GO combinations.
 After running ***run_som.sh*** and ***run_compScore.sh***, the user will get ***score_table_go_comb3.txt***, ***score_table_go_comb4.txt***, ***score_table_go_comb5.txt***, and ***score_table_go_comb6.txt***.
 ```
@@ -160,7 +160,7 @@ $ ./run_compScore.sh result_som.exprs_go_comb6 result_score_tables/score_table_g
 - result_score_tables/score_table_go_comb6.txt
 
 
-### STEP 8: Generate gene expression tables with deletion of one or more genes
+### ■ STEP 8: Generate gene expression tables with deletion of one or more genes
 In this step, to test whether the success rate can be further increased,
 genes are removed one by one combinations from input gene expression profile.
 As an example, the combination of five GOs (GO:0060412, GO:0005021, GO:2000392, GO:0031994, and GO:0070986) is given as an input in the following executions.
@@ -192,7 +192,7 @@ $ ./run_compScore.sh result_som.exprs_go_comb5_del3 result_score_tables/score_ta
 - result_score_tables/score_table_go_comb5_del3.txt
 
 
-### STEP 9: Delete further genes 
+### ■ STEP 9: Delete further genes 
 To investigate which genes are the most influential spatical discriminators, 
 ***generate_comb_genes_exprs.r*** removes each of the genes in an input expression profile to see the reduction of the success rate.
 In the following example, *Id2* is removed singularly or by pairs with the other genes in the above 5 GOs combination (GO:0060412, GO:0005021, GO:2000392, GO:0031994, and GO:0070986) with deletion of *Arl13b* and *Smad7*.
@@ -209,7 +209,7 @@ $ run_compScore.sh result_som.exprs_go_comb5_best22_del-Arl13b-Id2-Smad7_del1 re
 - score_table_go_comb5_best22_del-Arl13b-Id2-Smad7_del1.txt
 
 
-### STEP 10: Count genes of the expression profiles of combinations of GOs
+### ■ STEP 10: Count genes of the expression profiles of combinations of GOs
 ***count_genes_comb.sh*** counts the number of genes for each expression tables in 
 ***exprs_go_comb2***, ***exprs_go_comb3***, ***exprs_go_comb4***, ***exprs_go_comb5***, ***exprs_go_comb6***, 
 ***exprs_go_comb5_del1***, ***exprs_go_comb5_del2***, and ***exprs_go_comb5_del3*** by the same way as **STEP 3**.
@@ -227,7 +227,7 @@ $ ./count_genes_comb.sh
 - output/go2size.go_comb6_del3.txt
 
 
-### STEP 11: Plot SOM results
+### ■ STEP 11: Plot SOM results
 ***plot_som_results.r*** plots figures of "success rate vs total variance". 
 See Mori et al. (to be submitted) for the detals of calculations of success rate and total variance.
 ```
@@ -247,7 +247,7 @@ $ Rscript plot_som_results.r -t output/go2term.txt -s output/go2size.go_comb2.tx
 The horizontal and vertical axes show the success rate and the total variance, respectively. Each dot indicates a feature gene set selected by GOs. The left figure shows the results of mouse-specific 6,778 GOs out of all 17,940 GOs with proper gene size (1,000 genes or less, and at least three mouse genes after low-expression filtering). The right figure shows the result of all pairs of GO:0060412 and the other 6,777 GOs.
 
 
-### STEP 12: Plot 3D-models
+### ■ STEP 12: Plot 3D-models
 This procedure visualizes mid-gastrula mouse embryo structure by projecting cell samples on a paraboloid based on position information estimated by stochastic-SOM clustering.
 See Supplementary Information of Mori et al. (to be submitted) for more details of the visualization method.
 ***plot_3D-model.r*** generates png images and gif movies of reconstructed 3d-model from the stchastic-SOM clustering results with the higher success rate than a cutoff specified by option `-c` in 
@@ -272,7 +272,7 @@ $ Rscript plot_3D-model.r -i result_som.exprs_go_comb5_del2 -e exprs_go_comb5_de
 In above 3D-models, red, green, purple, and yellow plots indicate cell samples from domains D1, D2, D3, and D4, respectively.
 
 
-### STEP 13: Plot correlation matrix of domains
+### ■ STEP 13: Plot correlation matrix of domains
 ***plot_corMatrix_domain.r*** computes domain correlations based on the mean values of gene expressions in for four domains and plots its correlation matrix as heat maps for all GOs listed in ***\<directory name\>/tbl.all.txt***.
 The cutoff of the success rate can be change by the `-c` option.
 The options `-e`, `-i`, and `-o` specify directories storing gene expression profiles, evaluation results, and an output directory, respectively, `-t` specifies an input file including sample and domain information.
