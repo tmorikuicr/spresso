@@ -19,7 +19,7 @@ Novel computational modeling and analysis of mouse mid-gastrula morphogenesis by
 * getopt	1.20.2
 * rgl		0.99.16
 
-## Input expression data
+## Gene expression profiles for cryo-sectioned mouse embryo
 To reconstruct spatial structure of mid-gastrual mouse embryo (E7.0d), 
 gene expression profiles for cryo-sectioned embryo laser microdissection study by [Peng et al.](https://www.ncbi.nlm.nih.gov/pubmed/27003939), ***GSE65924_E1.gene.expression.txt.gz*** downloaded from ([GSE65924](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE65924)), is given as input.
 The gene expression profiles for each of eleven frozen sections were separated into four regions (anterior, posterior, left, and right), where a total of 41 samples are available (the most distal section has no right and left samples, and there is one low expression sample). Each sample is composed of a small number of cells (about 20 cells per sample) and not single-cell data.
