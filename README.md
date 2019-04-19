@@ -54,7 +54,7 @@ $ Rscript generate_exprs.r
 - exprs_peng/exprs.log10.E1.peng158.txt
 - exprs_go/exprs.log10.E1.GOXXXXXX.txt
 
----
+
 ### ■ STEP 3: Count the number of genes
 ***count_genes.sh*** counts the number of genes for each expression table in 
 ***exprs_go*** and ***exprs_peng*** directories, 
@@ -66,7 +66,7 @@ $ ./count_genes.sh
 - output/go2size.go.txt
 - output/go2size.peng.txt
 
----
+
 ### ■ STEP 4: Run stochastic self-organizing map (stochastic-SOM) clustering (*submit jobs via `qsub`*)
 ***run_som.sh*** executes stochastic-SOM clustering for all gene expression profiles in 
 ***exprs_go*** and ***exprs_peng***. 
