@@ -1,5 +1,5 @@
 # SPRESSO
-**SPRESSO** (**Sp**atial **Re**construction by **S**tochastic **S**elf-**O**rganizing map) is a novel computational modeling and analysis of mouse mid-gastrula morphogenesis by self-organizing-map (SOM) clustering.
+**SPRESSO** (**Sp**atial **Re**construction by **S**tochastic **S**elf-**O**rganizing map) is a novel computational modeling and analysis of mouse mid-gastrula morphogenesis by stochastic self-organizing map (stochastic-SOM) clustering.
 
 <img src="img/overview.png">
 
